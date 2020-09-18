@@ -3,8 +3,8 @@ import { useSpring, animated } from 'react-spring';
 
 const Home = () => {
 
-    const colors = ['#c72e2e', '#64b828', '#009DDC', '#F26430', '#6761A8']
-
+    const colors = ['#c72e2e', '#64b828', '#009DDC', '#F26430', '#6761A8'];
+    
     const tiles = [
         {
             title: `Hi, I'm Kyle`, //home
@@ -20,12 +20,12 @@ const Home = () => {
         },
         {
             title: `Various Skills`, //skills
-            description: `C++`
+            description: `NodeJS, ReactJS, Spring, ExpressJS, MongoDB, SQL, AWS, Java, C++, RESTful APIs`
         },
         {
             title: `Let's Talk`, //contact
             description: `Don't be shy. Feel free to reach out.`
-        },
+        }
     ]
 
     const [color, setColor] = useState(colors[0]);
@@ -35,20 +35,23 @@ const Home = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            if (index === colors.length - 1) {setIndex(0)}
-            else {setIndex(index => index + 1)}
-            setColor(colors[index]);
-            setTile(tiles[index]);
-            console.log(index);
-            // make each letter jump in through a position at -30px
+            let newIndex;
+            if (index === colors.length - 1) {setIndex(0); newIndex = 0;}
+            else {setIndex(index => index + 1); newIndex = index + 1;}
+            setColor(colors[newIndex]);
+            setTile(tiles[newIndex]);
 
-        }, 2000);
+        }, 5000);
         return () => clearInterval(interval);
-      }, [index, color, tile]);
+      }, [index, color, tile, colors, tiles]);
 
     const fade = useSpring({
         background: color
     });
+
+    const font = useSpring({
+        fontFamily: 'Londrina Shadow'
+    })
     
     const getButtons = () => {
         return tiles.map((tile, i) => <button 
@@ -63,11 +66,12 @@ const Home = () => {
 
     const getTitle = () => {
         const letters = [];
+        // randomize which letters have a change in font
         for (let i = 0; i < tile.title.length; i++) {
-            const font = i % 2 === 0 ? 'Londrina Shadow' : '';
+            // const font = i % 2 === 0 ? 'Londrina Shadow' : '';
             
             if (tile.title[i] === ' ') {letters.push(<span key={`${index}.${i}`} style={{margin: '0 8px'}}></span>)}
-            else {letters.push(<animated.h1 key={`${index}.${i}`} style={{fontFamily: font}} className='title'>{tile.title[i]}</animated.h1>) }
+            else {letters.push(<animated.h1 key={`${index}.${i}`} style={font} className='title'>{tile.title[i]}</animated.h1>) }
         }
         return letters;
     }
@@ -82,7 +86,7 @@ const Home = () => {
                     {getTitle()}
                 </div>
 
-                <h3 className='description'>{tile.description}</h3>
+                <animated.h3 className='description' style={font}>{tile.description}</animated.h3>
                 {index !== 0 ? <button className='learn-more' style={{color: color}}>Learn More</button> : ''}
                 
             </section>
