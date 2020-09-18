@@ -14,6 +14,14 @@ code {
 
 nav {
   text-align: right;
+  padding: 20px 20px 0 0;
+  color: white;
+  font-size: 32px;
+  font-family: 'Bubblegum Sans', cursive;
+}
+
+nav > span {
+  margin: 0 5px;
 }
 
 .background {
@@ -49,9 +57,13 @@ main {
 }
 
 .title, .description, .learn-more {
-  font-family: 'Bubblegum Sans', cursive;
+  font-family: 'Londrina Shadow';
   text-transform: uppercase;
   text-align: center;
+}
+
+.learn-more {
+  font-family: 'Bubblegum Sans', cursive;
 }
 
 .title {

@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import { useSpring, animated } from 'react-spring';
+import Letter from './Letter';
 
 const Home = () => {
 
     const colors = ['#c72e2e', '#64b828', '#009DDC', '#F26430', '#6761A8'];
-    
+    const pages = ['Home', 'Portfolio', 'Experience', 'Skills', 'Contact'];
     const tiles = [
         {
             title: `Hi, I'm Kyle`, //home
@@ -41,17 +42,17 @@ const Home = () => {
             setColor(colors[newIndex]);
             setTile(tiles[newIndex]);
 
-        }, 5000);
+        }, 10000);
         return () => clearInterval(interval);
       }, [index, color, tile, colors, tiles]);
 
     const fade = useSpring({
-        background: color
+        from: {
+            opactiy: 0
+        },
+        background: color,
+        opacity: 1
     });
-
-    const font = useSpring({
-        fontFamily: 'Londrina Shadow'
-    })
     
     const getButtons = () => {
         return tiles.map((tile, i) => <button 
@@ -71,22 +72,32 @@ const Home = () => {
             // const font = i % 2 === 0 ? 'Londrina Shadow' : '';
             
             if (tile.title[i] === ' ') {letters.push(<span key={`${index}.${i}`} style={{margin: '0 8px'}}></span>)}
-            else {letters.push(<animated.h1 key={`${index}.${i}`} style={font} className='title'>{tile.title[i]}</animated.h1>) }
+            else {letters.push(<Letter key={`${index}.${i}`} letter={tile.title[i]} />) }
+            // else {letters.push(<animated.h1 key={`${index}.${i}`} style={font} className='title'>{tile.title[i]}</animated.h1>) }
         }
         return letters;
+    }
+
+    const getNav = () => {
+        const nav = [];
+        for (let i = 0; i < pages.length; i++) {
+            nav.push(<span key={i}>{pages[i]}</span>)
+            if (i !== pages.length - 1) {nav.push(<span key={`${i}.5`}>/</span>)}
+        }
+        return nav;
     }
 
     return (
 
         <main className='home'>
-            <nav>Home / Portfolio / Experience / Skills / Contact</nav>
+            <nav>{getNav()}</nav>
             <animated.div className='background' style={fade}></animated.div>
             <section className='tile'>
                 <div className='tile-title'>
                     {getTitle()}
                 </div>
 
-                <animated.h3 className='description' style={font}>{tile.description}</animated.h3>
+                <animated.h3 className='description'>{tile.description}</animated.h3>
                 {index !== 0 ? <button className='learn-more' style={{color: color}}>Learn More</button> : ''}
                 
             </section>
