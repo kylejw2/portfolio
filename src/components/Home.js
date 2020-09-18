@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { useSpring, animated } from 'react-spring';
+import { useTransition, useSpring, animated } from 'react-spring';
 import Letter from './Letter';
 
 const Home = () => {
@@ -17,7 +17,7 @@ const Home = () => {
         },
         {
             title: `Valuable Experience`, //experience
-            description: `Front-end developer, back-end developer, UI/UX designer.`
+            description: `Front-end and back-end developer, UI/UX designer.`
         },
         {
             title: `Various Skills`, //skills
@@ -27,12 +27,24 @@ const Home = () => {
             title: `Let's Talk`, //contact
             description: `Don't be shy. Feel free to reach out.`
         }
-    ]
+    ];
 
     const [color, setColor] = useState(colors[0]);
     const [tile, setTile] = useState(tiles[0]);
     const [index, setIndex] = useState(0);
-    // let index = 0;
+    const [descriptionWords, setDescriptionWords] = useState(tile.description.split(' '));
+
+    const transitions = useTransition(descriptionWords, word => `${word}`, {
+        from: { position: 'absolute', opacity: 0, transform: 'scale(0)' },
+        enter: { position: 'absolute', opacity: 1, transform: 'scale(1)' },
+        leave: { position: 'absolute', opacity: 0, transform: 'scale(0)' },
+        // from: { opacity: 0, marginLeft: '100px', marginRight: '-100px' },
+        // enter: { opacity: 1, marginLeft: '0px', marginRight: '0px' },
+        // leave: { opacity: 0, marginLeft: '-100px', marginRight: '100px' },
+        // from: { transform: 'translate3d(0,-20px,0)' },
+        // enter: { transform: 'translate3d(0,0px,0)' },
+        // leave: { transform: 'translate3d(0,-20px,0)' },
+        })
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -41,7 +53,7 @@ const Home = () => {
             else {setIndex(index => index + 1); newIndex = index + 1;}
             setColor(colors[newIndex]);
             setTile(tiles[newIndex]);
-
+            setDescriptionWords(tiles[newIndex].description.split(' '));
         }, 10000);
         return () => clearInterval(interval);
       }, [index, color, tile, colors, tiles]);
@@ -62,18 +74,15 @@ const Home = () => {
                 setTile(tiles[i]); 
                 setColor(colors[i]);
                 setIndex(i);
+                setDescriptionWords(tiles[i].description.split(' '))
             }}></button>);
     }
 
     const getTitle = () => {
         const letters = [];
-        // randomize which letters have a change in font
         for (let i = 0; i < tile.title.length; i++) {
-            // const font = i % 2 === 0 ? 'Londrina Shadow' : '';
-            
             if (tile.title[i] === ' ') {letters.push(<span key={`${index}.${i}`} style={{margin: '0 8px'}}></span>)}
             else {letters.push(<Letter key={`${index}.${i}`} letter={tile.title[i]} />) }
-            // else {letters.push(<animated.h1 key={`${index}.${i}`} style={font} className='title'>{tile.title[i]}</animated.h1>) }
         }
         return letters;
     }
@@ -99,7 +108,10 @@ const Home = () => {
 
                 <animated.h3 className='description'>{tile.description}</animated.h3>
                 {index !== 0 ? <button className='learn-more' style={{color: color}}>Learn More</button> : ''}
-                
+                { transitions.map(({ item, props, key }) => {
+                    // return <animated.div key={key} style={props}>{item}</animated.div>
+                })}
+
             </section>
             <div className='button-group'>
                 {getButtons()}

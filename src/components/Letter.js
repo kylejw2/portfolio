@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
 
 
 const Letter = (props) => {
 
     const [answer, setAnswer] = useState(false);
-    const [clicked, setClicked] = useState(false)
+    const [clicked, setClicked] = useState(false);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+
+        }, 10000);
+        return () => clearInterval(interval);
+      }, []);
 
     const accepted = Math.floor(Math.random() * 2) === 0 ? true : false;
     const fade = useSpring({
