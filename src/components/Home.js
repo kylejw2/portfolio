@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import { useTransition, useSpring, animated } from 'react-spring';
+import { useSpring, animated } from 'react-spring';
 import Letter from './Letter';
+import Word from './Word';
 
 const Home = () => {
 
@@ -32,19 +33,19 @@ const Home = () => {
     const [color, setColor] = useState(colors[0]);
     const [tile, setTile] = useState(tiles[0]);
     const [index, setIndex] = useState(0);
-    const [descriptionWords, setDescriptionWords] = useState(tile.description.split(' '));
+    // const [descriptionWords, setDescriptionWords] = useState(tile.description.split(' '));
 
-    const transitions = useTransition(descriptionWords, word => `${word}`, {
-        from: { position: 'absolute', opacity: 0, transform: 'scale(0)' },
-        enter: { position: 'absolute', opacity: 1, transform: 'scale(1)' },
-        leave: { position: 'absolute', opacity: 0, transform: 'scale(0)' },
-        // from: { opacity: 0, marginLeft: '100px', marginRight: '-100px' },
-        // enter: { opacity: 1, marginLeft: '0px', marginRight: '0px' },
-        // leave: { opacity: 0, marginLeft: '-100px', marginRight: '100px' },
-        // from: { transform: 'translate3d(0,-20px,0)' },
-        // enter: { transform: 'translate3d(0,0px,0)' },
-        // leave: { transform: 'translate3d(0,-20px,0)' },
-        })
+    // const transitions = useTransition(descriptionWords, word => `${word}`, {
+    //     from: { position: 'absolute', opacity: 0, transform: 'scale(0)' },
+    //     enter: { position: 'absolute', opacity: 1, transform: 'scale(1)' },
+    //     leave: { position: 'absolute', opacity: 0, transform: 'scale(0)' },
+    //     // from: { opacity: 0, marginLeft: '100px', marginRight: '-100px' },
+    //     // enter: { opacity: 1, marginLeft: '0px', marginRight: '0px' },
+    //     // leave: { opacity: 0, marginLeft: '-100px', marginRight: '100px' },
+    //     // from: { transform: 'translate3d(0,-20px,0)' },
+    //     // enter: { transform: 'translate3d(0,0px,0)' },
+    //     // leave: { transform: 'translate3d(0,-20px,0)' },
+    //     })
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -53,7 +54,7 @@ const Home = () => {
             else {setIndex(index => index + 1); newIndex = index + 1;}
             setColor(colors[newIndex]);
             setTile(tiles[newIndex]);
-            setDescriptionWords(tiles[newIndex].description.split(' '));
+            // setDescriptionWords(tiles[newIndex].description.split(' '));
         }, 10000);
         return () => clearInterval(interval);
       }, [index, color, tile, colors, tiles]);
@@ -74,7 +75,7 @@ const Home = () => {
                 setTile(tiles[i]); 
                 setColor(colors[i]);
                 setIndex(i);
-                setDescriptionWords(tiles[i].description.split(' '))
+                // setDescriptionWords(tiles[i].description.split(' '))
             }}></button>);
     }
 
@@ -96,6 +97,11 @@ const Home = () => {
         return nav;
     }
 
+    const getDescription = () => {
+        const descriptionWords = tile.description.split(' ');
+        return descriptionWords.map(word => <Word key={`${index}.${word}`} word={word} />)
+    }
+
     return (
 
         <main className='home'>
@@ -105,12 +111,14 @@ const Home = () => {
                 <div className='tile-title'>
                     {getTitle()}
                 </div>
-
-                <animated.h3 className='description'>{tile.description}</animated.h3>
+                <div className='tile-description'>
+                    {getDescription()}
+                </div>
+                {/* <animated.h3 className='description'>{tile.description}</animated.h3> */}
                 {index !== 0 ? <button className='learn-more' style={{color: color}}>Learn More</button> : ''}
-                { transitions.map(({ item, props, key }) => {
+                {/* { transitions.map(({ item, props, key }) => {
                     // return <animated.div key={key} style={props}>{item}</animated.div>
-                })}
+                })} */}
 
             </section>
             <div className='button-group'>
