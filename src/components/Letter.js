@@ -20,10 +20,10 @@ const Letter = (props) => {
             mass: 8
         },
         from: {
-            transform: accepted ? 'translate3d(0px,100px,0) scale(1) rotateX(0deg)' : 'translate3d(0px,-100px,0) scale(1) rotateX(0deg)',
+            transform: accepted ? `translate3d(0px,${(Math.random() - .5) * 200}px,0) scale(1) rotateX(0deg)` : `translate3d(0px,-${(Math.random() - .5) * 200}px,0) scale(1) rotateX(0deg)`,
         },
         transform: answer ? 'translate3d(0px,-20px,0px) scale(1) rotateX(0deg)' : 'translate3d(0px,0,0) scale(1) rotateX(0deg)',
-        fontFamily: answer ? "Bubblegum Sans" : "Londrina Shadow",
+        // fontFamily: answer ? "Bubblegum Sans" : "Londrina Shadow",
         display: clicked ? 'none' : ''
     });
 
