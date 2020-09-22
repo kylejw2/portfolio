@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Nav from './Nav';
 import Letter from './Letter';
 import Yedding from '../assets/Yedding.jpg';
@@ -10,6 +10,10 @@ import Project from './Project';
 import {useSpring, animated} from 'react-spring';
 
 const Portfolio = (props) => {
+
+    const [displayProject, setDisplayProject] = useState(false);
+    const [mainProject, setMainProject] = useState('');
+
     const projects = [
         {
             title: 'Yedding',
@@ -48,13 +52,8 @@ const Portfolio = (props) => {
         return letters;
     }
 
-    // const grow = useSpring({
-    //     transform: hover ? 'scale(1)' : 'scale(1.5)'
-    //         // transform: 'translate3d(0px,0,0) scale(1) rotateX(0deg)'
-    // })
-
     const getProjects = () => {
-        return projects.map(project => <Project project={project} />)
+        return projects.map(project => <Project project={project} changeDisplay={setDisplayProject} setMain={setMainProject} />)
     }
 
     const fade = useSpring({
@@ -71,9 +70,23 @@ const Portfolio = (props) => {
                 <div className='tile-title'>
                     {getTitle()}
                 </div>
-                <div className='projects'>
-                    {getProjects()}
-                </div>
+                {
+                    displayProject ? 
+                    <div className='main-project'>
+                        <div className='buttons-change-project'>
+                            <button><i className='fa fa-chevron-left'></i></button>
+                            <button><i className='fa fa-chevron-right'></i></button>
+                            <button onClick={() => {setDisplayProject(false)}}><i className='fa fa-times'></i></button>
+                        </div>
+                        <section>
+                            <Project project={mainProject} mainDisplay={true} />
+                        </section>
+                    </div>
+                    :
+                    <div className='projects'>
+                        {getProjects()}
+                    </div>
+                }
             </main>
         </animated.div>
     )

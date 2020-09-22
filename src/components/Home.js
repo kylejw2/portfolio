@@ -14,15 +14,18 @@ const Home = (props) => {
         },
         {
             title: `I'm crazy about coding`, //portfolio
-            description: `Check out some of my recent projects.`
+            description: `Check out some of my recent projects.`,
+            page: 'Portfolio'
         },
         {
             title: `Valuable Experience`, //experience
-            description: `Front-end and back-end developer, UI/UX designer.`
+            description: `Front-end and back-end developer, UI/UX designer.`,
+            page: 'Experience'
         },
         {
             title: `Various Skills`, //skills
-            description: `NodeJS, ReactJS, React Spring, ExpressJS, MongoDB, SQL, AWS, Java, C++, RESTful APIs`
+            description: `NodeJS, ReactJS, React Spring, ExpressJS, MongoDB, SQL, AWS, Java, C++, RESTful APIs`,
+            page: 'Skills'
         },
         {
             title: `Let's Talk`, //contact
@@ -106,7 +109,7 @@ const Home = (props) => {
                 <div className='tile-description'>
                     {getDescription()}
                 </div>
-                {index !== 0 ? <button className='learn-more' style={{color: color}}>Learn More</button> : ''}
+                {index !== 0 ? <button className='learn-more' style={{color: color}} onClick={() => props.history.push(`/${tile.page}`)}>Learn More</button> : ''}
             </section>
             <div className='button-group'>
                 {getButtons()}

@@ -14,13 +14,31 @@ const Project = props => {
     })
 
     return (
-        <animated.div className='project-card' onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)} style={shadow}>
-            <div className='crop'>
-                <animated.img src={props.project.image} alt={props.project.title} style={grow}/>
-            </div>
-            <h5>{props.project.title}</h5>
-            <p>{props.project.description}</p>
-        </animated.div>
+        <>
+        {
+            props.mainDisplay ? 
+            <div>
+                <div className='crop'>
+                    <img src={props.project.image} alt={props.project.title} />
+                </div>
+                <h5>{props.project.title}</h5>
+                <p>{props.project.description}</p>
+            </div> 
+            : 
+            <animated.div className='project-card'
+            onMouseOver={() => setHover(true)} 
+            onMouseLeave={() => setHover(false)} 
+            onClick={() => {props.changeDisplay(true); props.setMain(props.project)}}
+            style={shadow}>
+                <div className='crop'>
+                    <animated.img src={props.project.image} alt={props.project.title} style={grow}/>
+                </div>
+                <h5>{props.project.title}</h5>
+                <p>{props.project.description}</p>
+            </animated.div>
+        }
+        </>
+        
     )
 }
 
