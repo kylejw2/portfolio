@@ -4,6 +4,7 @@ import Home from './components/Home';
 import Portfolio from './components/Portfolio';
 import Redirect from './components/Redirect';
 import Experience from './components/Experience';
+import Skills from './components/Skills';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
         <Route exact path='/Home' render={props => <Home {...props}/>} />
         <Route exact path='/Portfolio' render={props => <Portfolio {...props}/>} />
         <Route exact path='/Experience' render={props => <Experience {...props}/>} />
+        <Route exact path='/Skills' render={props => <Skills {...props}/>} />
       </Switch>
     </Router>
   );

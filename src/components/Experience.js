@@ -104,7 +104,7 @@ const Experience = (props) => {
             <animated.main className='exp-main' style={fade}>
                 <div>
                     <h1>Experience</h1>
-                    <animated.h2 onClick={() => setExpSection(0)}>Work</animated.h2>
+                    <h2 onClick={() => setExpSection(0)}>Work</h2>
                     <h2 onClick={() => setExpSection(1)}>Education</h2>
                     <h2 onClick={() => setExpSection(2)}>Volunteer</h2>
                 </div>
