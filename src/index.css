@@ -24,6 +24,10 @@ nav > span {
   margin: 0 5px;
 }
 
+.nav-active-page {
+  color: #eeeeee79
+}
+
 .background {
   margin: 0;
   left: 0;
@@ -34,13 +38,13 @@ nav > span {
   position: fixed;
 }
 
-main {
+.home {
   width: 100%;
   height: 100vh;
   margin: 0;
 }
 
-.home {
+.home, .portfolio {
   color: rgb(255, 255, 255);
 }
 
@@ -120,6 +124,77 @@ main {
   margin: 0 4px;
 }
 
+.portfolio {
+  background-color: #64b828;
+  width: 100%;
+  height: auto;
+}
+
+.portfolio > main {
+  margin: 30px auto 0 auto;
+}
+
+.projects {
+  width: 60%;
+  margin: 0 auto;
+  color: #223333;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.project-card {
+  height: 350px;
+  width: 400px;
+  background-color: #f3f3f3;
+  margin: 30px;
+  box-shadow: 5px 5px 5px 3px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  justify-content: flex-start;
+}
+
+.project-card > * {
+  margin: 5px;
+}
+
+.project-card > p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: large;
+}
+
+.project-card > h5 {
+  font-size: large;
+}
+
+.crop {
+  margin: 0 auto;
+  height: 300px;
+  width: 400px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.crop > img {
+  object-fit: contain;
+  margin: -50px auto 0 auto;
+  margin: 0 auto;
+  width: auto;
+  max-width: 400px;
+  transform: scale(1.5);
+  transform-origin: center;
+}
+
+.change-cursor {
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 1029px) {
   .description {
     font-size: 50px;
@@ -134,6 +209,22 @@ main {
   .learn-more {
     font-size: 20px;
     padding: 10px 7px;
+  }
+  nav {
+    padding: 20px 20px 0 0;
+    font-size: 28px;
+  }
+  
+  nav > span {
+    margin: 0 5px;
+  }
+  .project-card {
+    height: 300px;
+    width: 350px;
+  }
+  .crop {
+    height: 250px;
+    width: 350px;
   }
 }
 @media only screen and (max-width: 769px) {
@@ -151,6 +242,22 @@ main {
     font-size: 20px;
     padding: 10px 7px;
   }
+  nav {
+    padding: 20px 20px 0 0;
+    font-size: 20px;
+  }
+  
+  nav > span {
+    margin: 0 4px;
+  }
+  .project-card {
+    height: 250px;
+    width: 300px;
+  }
+  .crop {
+    height: 200px;
+    width: 300px;
+  }
 }
 @media only screen and (max-width: 420px) {
   
@@ -167,5 +274,21 @@ main {
   .learn-more {
     font-size: 14px;
     padding: 8px 6px;
+  }
+  nav {
+    padding: 20px 20px 0 0;
+    font-size: 12px;
+  }
+  
+  nav > span {
+    margin: 0 3px;
+  }
+  .project-card {
+    height: 200px;
+    width: 250px;
+  }
+  .crop {
+    height: 150px;
+    width: 250px;
   }
 }

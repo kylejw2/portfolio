@@ -2,11 +2,11 @@ import React, {useState, useEffect} from 'react';
 import { useSpring, animated } from 'react-spring';
 import Letter from './Letter';
 import Word from './Word';
+import Nav from './Nav';
 
-const Home = () => {
+const Home = (props) => {
 
     const colors = ['#c72e2e', '#64b828', '#009DDC', '#F26430', '#6761A8'];
-    const pages = ['Home', 'Portfolio', 'Experience', 'Skills', 'Contact'];
     const tiles = [
         {
             title: `Hi, I'm Kyle`, //home
@@ -22,7 +22,7 @@ const Home = () => {
         },
         {
             title: `Various Skills`, //skills
-            description: `NodeJS, ReactJS, Spring, ExpressJS, MongoDB, SQL, AWS, Java, C++, RESTful APIs`
+            description: `NodeJS, ReactJS, React Spring, ExpressJS, MongoDB, SQL, AWS, Java, C++, RESTful APIs`
         },
         {
             title: `Let's Talk`, //contact
@@ -55,7 +55,7 @@ const Home = () => {
             setColor(colors[newIndex]);
             setTile(tiles[newIndex]);
             // setDescriptionWords(tiles[newIndex].description.split(' '));
-        }, 10000);
+        }, 5000);
         return () => clearInterval(interval);
       }, [index, color, tile, colors, tiles]);
 
@@ -88,24 +88,16 @@ const Home = () => {
         return letters;
     }
 
-    const getNav = () => {
-        const nav = [];
-        for (let i = 0; i < pages.length; i++) {
-            nav.push(<span key={i}>{pages[i]}</span>)
-            if (i !== pages.length - 1) {nav.push(<span key={`${i}.5`}>/</span>)}
-        }
-        return nav;
-    }
-
     const getDescription = () => {
         const descriptionWords = tile.description.split(' ');
         return descriptionWords.map(word => <Word key={`${index}.${word}`} word={word} />)
     }
 
     return (
-
         <main className='home'>
-            <nav>{getNav()}</nav>
+            <nav>
+                <Nav {...props} activePage='Home'/>
+            </nav>
             <animated.div className='background' style={fade}></animated.div>
             <section className='tile'>
                 <div className='tile-title'>
@@ -114,19 +106,12 @@ const Home = () => {
                 <div className='tile-description'>
                     {getDescription()}
                 </div>
-                {/* <animated.h3 className='description'>{tile.description}</animated.h3> */}
                 {index !== 0 ? <button className='learn-more' style={{color: color}}>Learn More</button> : ''}
-                {/* { transitions.map(({ item, props, key }) => {
-                    // return <animated.div key={key} style={props}>{item}</animated.div>
-                })} */}
-
             </section>
             <div className='button-group'>
                 {getButtons()}
             </div>
         </main>
-        
-        
     )
 }
 
