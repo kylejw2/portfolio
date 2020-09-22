@@ -1,15 +1,15 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Nav from './Nav';
 import Letter from './Letter';
 import Yedding from '../assets/Yedding.jpg';
 import Laborh from '../assets/Laborh.jpg';
 import EventCal from '../assets/Event-Calendar.jpg';
-import { useSpring, animated} from 'react-spring';
+import Glossary from '../assets/Glossary.jpg';
+import PortfolioImg from '../assets/Portfolio.jpg';
+import Project from './Project';
+import {useSpring, animated} from 'react-spring';
 
 const Portfolio = (props) => {
-
-    const [hover, setHover] = useState(false);
-
     const projects = [
         {
             title: 'Yedding',
@@ -17,7 +17,7 @@ const Portfolio = (props) => {
             image: Yedding
         },
         {
-            title: 'La-Borh',
+            title: `La'Borh`,
             description: ['I developed this responsive ecommerce admin page using ReactJS to quickly change between displaying all products, updating existing products, and adding new products without loading a new webpage. To store pictures in MongoDB, I used Base64 encoding to convert images to ASCII strings', 'La’Borh is an ecommerce site selling clothes. The La’Borh admin page allows non-technical administrators to instantly modify the actual La’Borh ecommerce site.'],
             image: Laborh
         },
@@ -29,12 +29,12 @@ const Portfolio = (props) => {
         {
             title: 'Web Development Glossary',
             description: ['I developed this open-source web development glossary. Using ExpressJS and the REST architecture style, I constructed an API which manages http requests for CRUD operations to quickly and efficiently access and modify data within a NoSQL database on the backend.'],
-            image: ''
+            image: Glossary
         },
         {
             title: 'Portfolio',
             description: ['I built this portfolio using React and React Spring for the physics-based animations.'],
-            image: ''
+            image: PortfolioImg
         }
     ]
 
@@ -48,27 +48,22 @@ const Portfolio = (props) => {
         return letters;
     }
 
-    const grow = useSpring({
-        transform: hover ? 'scale(1)' : 'scale(1.5)'
-            // transform: 'translate3d(0px,0,0) scale(1) rotateX(0deg)'
-    })
+    // const grow = useSpring({
+    //     transform: hover ? 'scale(1)' : 'scale(1.5)'
+    //         // transform: 'translate3d(0px,0,0) scale(1) rotateX(0deg)'
+    // })
 
     const getProjects = () => {
-        return projects.map(project => {
-            return (
-                <div className='project-card' onMouseOver={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-                    <div className='crop'>
-                        <animated.img src={project.image} alt={project.title} style={grow}/>
-                    </div>
-                    <h5>{project.title}</h5>
-                    <p>{project.description}</p>
-                </div>
-            )
-        })
+        return projects.map(project => <Project project={project} />)
     }
 
+    const fade = useSpring({
+        from: {background: 'black'},
+        background: '#64b828'
+    })
+
     return (
-        <div className='portfolio'>
+        <animated.div className='portfolio' style={fade}>
             <nav>
                 <Nav {...props} activePage='Portfolio' />
             </nav>
@@ -80,7 +75,7 @@ const Portfolio = (props) => {
                     {getProjects()}
                 </div>
             </main>
-        </div>
+        </animated.div>
     )
 }
 

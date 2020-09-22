@@ -135,12 +135,12 @@ nav > span {
 }
 
 .projects {
-  width: 60%;
   margin: 0 auto;
   color: #223333;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .project-card {
@@ -155,6 +155,10 @@ nav > span {
   flex-direction: column;
   justify-items: center;
   justify-content: flex-start;
+  border: 1px solid #a1a1a1
+}
+.project-card:hover {
+  cursor: pointer;
 }
 
 .project-card > * {
