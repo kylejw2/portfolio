@@ -25,7 +25,7 @@ nav > span {
 }
 
 .nav-active-page {
-  color: #eeeeee79
+  color: #b3b3b379 !important
 }
 
 .background {
@@ -100,7 +100,7 @@ nav > span {
 .button-group {
   text-align: center;
   position: fixed;
-  bottom: 15vh;
+  bottom: 8vh;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -124,12 +124,19 @@ nav > span {
   margin: 0 4px;
 }
 
-.portfolio {
-  background-color: #64b828;
+.portfolio, .experience {
   width: 100%;
   height: auto;
   min-height: 100vh;
   padding-bottom: 20px;
+}
+
+.portfolio {
+  background-color: #009DDC;
+}
+
+.experience {
+  background-color: #ffffff;
 }
 
 .portfolio > main {
@@ -248,7 +255,7 @@ nav > span {
 }
 
 .project-single-display > div > h5 {
-  color: #64b828;
+  color: #009DDC;
   font-size: larger;
   margin: 0;
 }
@@ -265,7 +272,7 @@ nav > span {
 .project-single-display > div > a > button {
   width: 100%;
   margin: 5px 0;
-  background-color: #64b828;
+  background-color: #009DDC;
   border: none;
   border-radius: 10px;
   color: white;
@@ -275,6 +282,67 @@ nav > span {
 
 .project-single-display > div > a > button:hover {
   cursor: pointer;
+}
+
+.exp-main {
+  color: #233233;
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+
+.exp-main > div {
+  text-align: right;
+  font-family: 'Londrina Shadow';
+  text-transform: uppercase;
+}
+
+.exp-main > div > h1 {
+  font-size: 70px;
+  margin: 30px 0;
+  padding: 0;
+}
+.exp-main > div > h2 {
+  font-size: 40px;
+}
+
+.example-card {
+  border: 1px solid #233233;
+  height: auto;
+  width: 500px;
+  padding: 20px;
+  margin: 30px auto;
+  text-align: left;
+  position: relative;
+}
+
+.example-card > h1, .example-card > h2, .example-card > h3 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.example-card > * {
+  margin: 2px;
+}
+
+.example-card > h1 {
+  font-size: 24px;
+  color: #233233;
+}
+
+.example-card > h2 {
+  font-size: 20px;
+  color: #233233C9;
+}
+
+.example-card > h3 {
+  font-size: 16px;
+  color: #2332336b
+}
+
+.example-card > p {
+  color: #233233d7;
+  text-transform: none;
+  /* font-weight: 600; */
+  font-family: sans-serif
 }
 
 @media only screen and (max-width: 1029px) {

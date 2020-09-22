@@ -5,8 +5,8 @@ import Word from './Word';
 import Nav from './Nav';
 
 const Home = (props) => {
-
-    const colors = ['#c72e2e', '#64b828', '#009DDC', '#F26430', '#6761A8'];
+    
+    const colors = ['#c72e2e', '#009DDC', '#64b828', '#F26430', '#6761A8'];
     const tiles = [
         {
             title: `Hi, I'm Kyle`, //home
