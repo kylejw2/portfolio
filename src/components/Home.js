@@ -29,7 +29,8 @@ const Home = (props) => {
         },
         {
             title: `Let's Talk`, //contact
-            description: `Don't be shy. Feel free to reach out.`
+            description: `Don't be shy. Feel free to reach out.`,
+            page: 'Contact'
         }
     ];
 

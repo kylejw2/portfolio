@@ -129,6 +129,7 @@ nav > span {
   width: 100%;
   height: auto;
   min-height: 100vh;
+  padding-bottom: 20px;
 }
 
 .portfolio > main {
@@ -201,27 +202,78 @@ nav > span {
 }
 
 .main-project {
-  margin-top: 20px;
+  margin: 20px auto 0 auto;
   width: 80%;
 }
 
 .buttons-change-project {
   text-align: right;
-
 }
 
 .buttons-change-project > button {
   border-radius: 50%;
-  height: 60px;
-  width: 60px;
-  border: 5px solid white;
+  height: 40px;
+  width: 40px;
+  border: 3px solid white;
   color: white;
   background-color: transparent;
-  font-size: 30px;
-  margin: 0 10px;
+  font-size: 20px;
+  margin-left: 10px;
 }
 
 .buttons-change-project > button:hover {
+  cursor: pointer;
+}
+
+.project-single-display {
+  margin: 20px auto 0 auto;
+  /* padding: 20px; */
+  display: flex;
+  width: 100%;
+  background-color: white;
+  color: #223333;
+  border: 1px solid #adadad;
+  border-radius: 10px;
+}
+
+.project-single-display > div {
+  margin: 15px;
+}
+
+.project-single-display > div > img {
+  max-width: 700px;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: 1px solid #adadad;
+}
+
+.project-single-display > div > h5 {
+  color: #64b828;
+  font-size: larger;
+  margin: 0;
+}
+
+.project-single-display > div > h4 {
+  font-family: 'Bubblegum Sans';
+  /* font-family: 'Lexend Peta', sans-serif; */
+  text-shadow: 2px 2px 1px #adadad;
+  font-weight: 100;
+  font-size: 50px;
+  margin: 0 0 10px 0;
+}
+
+.project-single-display > div > a > button {
+  width: 100%;
+  margin: 5px 0;
+  background-color: #64b828;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  height: 30px;
+  font-size: large;
+}
+
+.project-single-display > div > a > button:hover {
   cursor: pointer;
 }
 
