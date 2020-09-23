@@ -54,7 +54,7 @@ nav > span {
   margin: 10vh auto 0 auto;
 }
 
-.tile-title {
+.tile-title, .contact-title {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -105,7 +105,7 @@ nav > span {
   transform: translateX(-50%);
 }
 
-.learn-more {
+.learn-more, .resume > a > button {
   font-size: 24px;
   padding: 15px 10px;
   background-color: white;
@@ -372,6 +372,59 @@ canvas {
   border-radius: 50%;
 }
 
+.download-resume, .github {
+  position: fixed;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  color: black;
+}
+
+.contact {
+  background-color: #6761A8;
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  color: white;
+}
+
+.contact-title {
+  margin: 30px;
+}
+
+.icon-group {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+  margin: 80px auto;
+}
+
+.icon-group > a > i {
+  font-size: 80px;
+  color: white;
+}
+.icon-group > a > i:hover {
+  transform: rotate(15deg);
+}
+
+.resume {
+  margin: 30px auto;
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%)
+}
+
+.resume > a > button {
+  font-family: 'Bubblegum Sans';
+  color: #6761A8;
+  text-decoration: none;
+}
+
+.resume > a > button:hover {
+  cursor: pointer
+}
+
 @media only screen and (max-width: 1320px) {
   .project-single-display > div > img {
     max-width: 600px;
@@ -393,7 +446,7 @@ canvas {
     width: 80%;
     margin: 15vh auto 0 auto;
   }
-  .learn-more {
+  .learn-more, .resume > a > button {
     font-size: 20px;
     padding: 10px 7px;
   }
@@ -430,6 +483,9 @@ canvas {
   .exp-main > div > h2 {
     font-size: 30px;
   }
+  .icon-group > a > i {
+    font-size: 60px;
+  }
 }
 
 @media only screen and (max-width: 769px) {
@@ -443,7 +499,7 @@ canvas {
     width: 90%;
     margin: 15vh auto 0 auto;
   }
-  .learn-more {
+  .learn-more, .resume > a > button {
     font-size: 20px;
     padding: 10px 7px;
   }
@@ -471,6 +527,9 @@ canvas {
     flex-direction: column;
     padding: 10px;
   }
+  .icon-group > a > i {
+    font-size: 50px;
+  }
 }
 @media only screen and (max-width: 420px) {
   
@@ -484,7 +543,7 @@ canvas {
     width: 95%;
     margin: 20vh auto 0 auto;
   }
-  .learn-more {
+  .learn-more, .resume > a > button {
     font-size: 14px;
     padding: 8px 6px;
   }
@@ -510,5 +569,8 @@ canvas {
   .example-card {
     height: auto;
     width: 250px;
+  }
+  .icon-group > a > i {
+    font-size: 40px;
   }
 }
