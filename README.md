@@ -76,7 +76,7 @@ For the skills section, here are the following data models for
 ```
 
 ## New skills applied in this project
-Prior to this project, I haven't used a lot of animations. In this project, I used a physics-based animation package called `React Spring` to make my UI my engaging. This package is not only easy to use, it gives me a more realistic animation. In comparison to vanilla CSS animations which are based on durations and intervals, `React Spring` is based on physics.
+Prior to this project, I haven't used a lot of animations. In this project, I used a physics-based animation package called `React Spring` to make my UI more engaging. This package is not only easy to use, it gives me a more realistic animation. In comparison to vanilla CSS animations which are based on durations and intervals, `React Spring` is based on physics.
 Here's the documentation for `React Spring`: https://www.react-spring.io/
 ###
 Using `React Spring` is quite simple. Here's a code snippet to demonstrate a simple fade in animation.
