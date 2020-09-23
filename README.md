@@ -2,7 +2,6 @@
 
 ## Overview
 ### This project was built using ReactJS and is hosted through Github Pages.
-### Access the project here: https://kylejw2.github.io/Home
 
 ## Routing
 Routing between web pages (Home, Portofolio, Experience, Skills, and Contact) is done through the `react-router-dom` package.
