@@ -43,7 +43,9 @@ For the experience cards in the experience page, the following data model was us
 }
 ```
 
-For the skills section, here are the following data models for ...star (an instance of `class Star` in the canvas HTML element)
+For the skills section, here are the following data models for 
+###
+...star (an instance of `class Star` in the canvas HTML element)
 ```javascript
 {
     x: Math.random() * canvas.width, // x-value coordinate
