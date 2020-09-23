@@ -346,6 +346,32 @@ nav > span {
   font-family: sans-serif
 }
 
+canvas {
+  z-index: -1;
+}
+
+.sun {
+  z-index: 1;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.skills > h1 {
+  color: white;
+  font-family: 'Londrina Shadow';
+  text-align: center;
+  font-size: 70px;
+  text-transform: uppercase;
+}
+
+.light-around {
+  box-shadow: 0px 0px 3px 3px yellow;
+  background-color: yellow;
+  border-radius: 50%;
+}
+
 @media only screen and (max-width: 1320px) {
   .project-single-display > div > img {
     max-width: 600px;
