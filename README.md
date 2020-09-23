@@ -1,68 +1,96 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Portfolio
 
-## Available Scripts
+## Overview
+### This project was built using ReactJS and is hosted through Github Pages.
+### Access the project here: https://kylejw2.github.io/Home
 
-In the project directory, you can run:
+## Routing
+Routing between web pages (Home, Portofolio, Experience, Skills, and Contact) is done through the `react-router-dom` package.
 
-### `npm start`
+## Data Models
+For the home page, tiles were used to store information relating to a title, description, and a page.
+```javascript
+{
+    title: string,
+    description: string,
+    page: string
+}
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+For the portfolio cards in the portfolio page, the following data model was used:
+```javascript
+{
+    title: string,
+    description: [strings],
+    image: imported img object,
+    site: url string,
+    github: url string
+}
+```
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+For the experience cards in the experience page, the following data model was used:
+```javascript
+{
+    name: string,
+    open: bool,
+    examples: [
+        {
+            name: string,
+            date: string,
+            location: string,
+            explanation: [strings]
+        }
+    ]
+}
+```
 
-### `npm test`
+For the skills section, here are the following data models for ...star (an instance of `class Star` in the canvas HTML element)
+```javascript
+{
+    x: Math.random() * canvas.width, // x-value coordinate
+    y: Math.random() * canvas.height, // y-value coordinate
+    radius: Math.random() * 2,
+    color: '#cccccc'
+}
+```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+...orbit (an instance of `class Orbit` in the canvas HTML element)
+```javascript
+{
+    x: canvas.width / 2,
+    y: canvas.width / 2,
+    radiusX: int (exponentially increasing),
+    radiusY: int (exponentially increasing)
+}
+```
 
-### `npm run build`
+...planet
+```javascript
+{
+    skill: string,
+    img: imported image object,
+    top: string, // position represented in percent from top
+    left: string // position represented in percent from left
+}
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## New skills applied in this project
+Prior to this project, I haven't used a lot of animations. In this project, I used a physics-based animation package called `React Spring` to make my UI my engaging. This package is not only easy to use, it gives me a more realistic animation. In comparison to vanilla CSS animations which are based on durations and intervals, `React Spring` is based on physics.
+Here's the documentation for `React Spring`: https://www.react-spring.io/
+###
+Using `React Spring` is quite simple. Here's a code snippet to demonstrate a simple fade in animation.
+```javascript
+import React from 'react';
+import { useSpring, animated } from 'react-spring'; // first, import the library
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+const ReactSpringDemo = () => {
+    const fade = useSpring({ // use the useSpring API to build the animation
+        from: {opacity: 0},
+        opacity: 1
+    });
+    return <animated.div style={fade}>Hello world</animated.div> 
+    // to use the animation, pass it to the 'style' property and prepend the word, "animated" to your HTML tag
+}
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+export default ReactSpringDemo;
+```
