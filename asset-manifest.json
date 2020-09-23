@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.ceed2c8e.chunk.css",
+    "main.js": "/portfolio/static/js/main.b04d7c97.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.b04d7c97.chunk.js.map",
+    "runtime-main.js": "/portfolio/static/js/runtime-main.209c2d7e.js",
+    "runtime-main.js.map": "/portfolio/static/js/runtime-main.209c2d7e.js.map",
+    "static/js/2.b81588ae.chunk.js": "/portfolio/static/js/2.b81588ae.chunk.js",
+    "static/js/2.b81588ae.chunk.js.map": "/portfolio/static/js/2.b81588ae.chunk.js.map",
+    "index.html": "/portfolio/index.html",
+    "precache-manifest.e51d4ef2f6257bebe171b2be510b8c80.js": "/portfolio/precache-manifest.e51d4ef2f6257bebe171b2be510b8c80.js",
+    "service-worker.js": "/portfolio/service-worker.js",
+    "static/css/main.ceed2c8e.chunk.css.map": "/portfolio/static/css/main.ceed2c8e.chunk.css.map",
+    "static/js/2.b81588ae.chunk.js.LICENSE.txt": "/portfolio/static/js/2.b81588ae.chunk.js.LICENSE.txt",
+    "static/media/Cool.png": "/portfolio/static/media/Cool.fa2ac786.png",
+    "static/media/Event-Calendar.jpg": "/portfolio/static/media/Event-Calendar.531553d1.jpg",
+    "static/media/Glossary.jpg": "/portfolio/static/media/Glossary.fa925419.jpg",
+    "static/media/KyleWrightResume.pdf": "/portfolio/static/media/KyleWrightResume.1695685f.pdf",
+    "static/media/Laborh.jpg": "/portfolio/static/media/Laborh.dd2f83e3.jpg",
+    "static/media/Mars.png": "/portfolio/static/media/Mars.9d679672.png",
+    "static/media/Portfolio.jpg": "/portfolio/static/media/Portfolio.2334ee68.jpg",
+    "static/media/Yedding.jpg": "/portfolio/static/media/Yedding.537932bc.jpg",
+    "static/media/sun.png": "/portfolio/static/media/sun.f1b96aad.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.209c2d7e.js",
+    "static/js/2.b81588ae.chunk.js",
+    "static/css/main.ceed2c8e.chunk.css",
+    "static/js/main.b04d7c97.chunk.js"
+  ]
+}
