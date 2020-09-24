@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "097a9fd68a4e0b1f7da852969cfc12fa",
+    "revision": "d7cc6f2c9ab8283b550ebee7680b8bf3",
     "url": "/Portfolio/index.html"
   },
   {
-    "revision": "7f801d25c19a2d031088",
+    "revision": "54eaa6387ff8dc5e823c",
     "url": "/Portfolio/static/css/main.ceed2c8e.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Portfolio/static/js/2.b81588ae.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7f801d25c19a2d031088",
-    "url": "/Portfolio/static/js/main.d323f783.chunk.js"
+    "revision": "54eaa6387ff8dc5e823c",
+    "url": "/Portfolio/static/js/main.15e50b6c.chunk.js"
   },
   {
     "revision": "b83a37198ba343383876",
@@ -36,8 +36,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Portfolio/static/media/Glossary.fa925419.jpg"
   },
   {
-    "revision": "a9a6fafa4a9efd8aad785e7dc8d225ee",
-    "url": "/Portfolio/static/media/KyleWrightResume.a9a6fafa.pdf"
+    "revision": "e1056a2eb631fd7e8c2c961b3e1141eb",
+    "url": "/Portfolio/static/media/KyleWrightResume.e1056a2e.pdf"
   },
   {
     "revision": "dd2f83e38158b1ffa1f024a9da8473b3",
