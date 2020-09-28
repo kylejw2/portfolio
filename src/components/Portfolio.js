@@ -17,7 +17,7 @@ const Portfolio = (props) => {
     const projects = [
         {
             title: 'Yedding',
-            description: ['As the software architect behind Yedding, I’ve been given the task of building the website using ReactJS for the frontend, MongoDB for the database, ExpressJS for the API, and AWS for hosting. Once the website is completed, I’ll begin the project of building an app for IOS using Swift and Android using Python.', 'Yedding is an online service that connects homeowners looking to make large amounts of quick cash with couples looking for wedding venues. Through our online service, couples find affordable, yet beautiful wedding venues and homeowners find a more lucrative approach to renting their property.'],
+            description: ['As the co-founder and software architect behind Yedding, I’ve been given the task of building the website using ReactJS for the frontend, MongoDB for the database, ExpressJS for the API, and AWS for hosting. Once the website is completed, I’ll begin the project of building an app for IOS using Swift and Android using Python.'],
             image: Yedding,
             site: 'https://github.com/kylejw2/Yedding',
             github: 'https://github.com/kylejw2/Yedding'
